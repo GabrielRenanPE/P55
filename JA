@@ -1,20 +1,30 @@
 public class JA {
     public static void main(String[] args) {
-        Capitulo capitulo1 = new Capitulo("Você acorda em uma floresta e não sabe onde está. O que você faz?");
-        Capitulo capitulo2 = new Capitulo("Você encontrou uma caverna. O que você faz agora?");
-        Capitulo capitulo3 = new Capitulo("Você encontrou um tesouro dentro da caverna. O que você faz agora?");
+        Capitulo capitulo1 = new Capitulo("Você acorda em um quarto escuro. O que você faz?");
+        Capitulo capitulo2 = new Capitulo("Você encontra uma porta trancada. O que você faz?");
+        Capitulo capitulo3 = new Capitulo("Você encontra um armário com uma chave. O que você faz agora?");
+        Capitulo capitulo4 = new Capitulo("Você abre a porta e encontra um corredor escuro. O que você faz agora?");
+        Capitulo capitulo5 = new Capitulo("Você encontra uma janela quebrada. O que você faz agora?");
 
-        Escolha escolha1Cap1 = new Escolha("Explorar a área.", capitulo2);
-        Escolha escolha2Cap1 = new Escolha("Procurar ajuda.", capitulo3);
+        Escolha escolha1Cap1 = new Escolha("Tentar encontrar um interruptor de luz.", capitulo2);
+        Escolha escolha2Cap1 = new Escolha("Procurar por um objeto que possa ajudar a iluminar o quarto.", capitulo3);
         capitulo1.setEscolhas(new Escolha[] {escolha1Cap1, escolha2Cap1});
 
-        Escolha escolha1Cap2 = new Escolha("Entrar na caverna.", capitulo3);
-        Escolha escolha2Cap2 = new Escolha("Voltar para a floresta.", capitulo1);
+        Escolha escolha1Cap2 = new Escolha("Tentar arrombar a porta.", capitulo4);
+        Escolha escolha2Cap2 = new Escolha("Usar a chave que você encontrou no armário.", capitulo4);
         capitulo2.setEscolhas(new Escolha[] {escolha1Cap2, escolha2Cap2});
 
-        Escolha escolha1Cap3 = new Escolha("Pegar o tesouro.", null);
-        Escolha escolha2Cap3 = new Escolha("Deixar o tesouro e sair da caverna.", capitulo1);
+        Escolha escolha1Cap3 = new Escolha("Usar a chave que você encontrou na porta trancada.", capitulo4);
+        Escolha escolha2Cap3 = new Escolha("Procurar por mais objetos dentro do armário.", capitulo3);
         capitulo3.setEscolhas(new Escolha[] {escolha1Cap3, escolha2Cap3});
+
+        Escolha escolha1Cap4 = new Escolha("Andar pelo corredor para encontrar uma saída.", capitulo5);
+        Escolha escolha2Cap4 = new Escolha("Voltar para o quarto.", capitulo1);
+        capitulo4.setEscolhas(new Escolha[] {escolha1Cap4, escolha2Cap4});
+
+        Escolha escolha1Cap5 = new Escolha("Saltar pela janela quebrada.", null);
+        Escolha escolha2Cap5 = new Escolha("Procurar por outra saída.", capitulo4);
+        capitulo5.setEscolhas(new Escolha[] {escolha1Cap5, escolha2Cap5});
 
         Capitulo capituloRaiz = capitulo1;
 
