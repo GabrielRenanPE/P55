@@ -1,0 +1,36 @@
+public class Capitulo {
+    private String descricao;
+    private Escolha[] escolhas;
+
+    public Capitulo(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setEscolhas(Escolha[] escolhas) {
+        this.escolhas = escolhas;
+    }
+
+    public void mostrar() {
+        System.out.println(descricao);
+        for (int i = 0; i < escolhas.length; i++) {
+            System.out.println((i + 1) + ". " + escolhas[i].getTexto());
+        }
+    }
+
+    public int escolher() {
+        Scanner entrada = new Scanner(System.in);
+        int escolha = entrada.nextInt();
+        while (escolha < 1 || escolha > escolhas.length) {
+            System.out.println("Escolha inválida, por favor escolha novamente.");
+            escolha = entrada.nextInt();
+        }
+        return escolha;
+    }
+
+    public void executar() {
+        mostrar();
+        int escolha = escolher();
+        Capitulo proximoCapitulo = escolhas[escolha - 1].getProximo();
+        proximoCapitulo.executar();
+    }
+}
