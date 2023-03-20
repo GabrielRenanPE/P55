@@ -1,0 +1,23 @@
+public class JA {
+    public static void main(String[] args) {
+        Capitulo capitulo1 = new Capitulo("Você acorda em uma floresta e não sabe onde está. O que você faz?");
+        Capitulo capitulo2 = new Capitulo("Você encontrou uma caverna. O que você faz agora?");
+        Capitulo capitulo3 = new Capitulo("Você encontrou um tesouro dentro da caverna. O que você faz agora?");
+
+        Escolha escolha1Cap1 = new Escolha("Explorar a área.", capitulo2);
+        Escolha escolha2Cap1 = new Escolha("Procurar ajuda.", capitulo3);
+        capitulo1.setEscolhas(new Escolha[] {escolha1Cap1, escolha2Cap1});
+
+        Escolha escolha1Cap2 = new Escolha("Entrar na caverna.", capitulo3);
+        Escolha escolha2Cap2 = new Escolha("Voltar para a floresta.", capitulo1);
+        capitulo2.setEscolhas(new Escolha[] {escolha1Cap2, escolha2Cap2});
+
+        Escolha escolha1Cap3 = new Escolha("Pegar o tesouro.", null);
+        Escolha escolha2Cap3 = new Escolha("Deixar o tesouro e sair da caverna.", capitulo1);
+        capitulo3.setEscolhas(new Escolha[] {escolha1Cap3, escolha2Cap3});
+
+        Capitulo capituloRaiz = capitulo1;
+
+        capituloRaiz.executar();
+    }
+}
